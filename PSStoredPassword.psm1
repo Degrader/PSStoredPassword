@@ -9,7 +9,7 @@
 	===========================================================================
 #>
 
-function Set-StoredSecureCredential
+function Set-StoredPassword
 {
 <#
 	.SYNOPSIS
@@ -26,13 +26,13 @@ function Set-StoredSecureCredential
 	.PARAMETER Scope
 		Scope of ProtectedData type. CurrentUser or LocalMachine are the two accepted values. CurrentUser is the default value.
 	.EXAMPLE
-		PS C:\> Set-StoredSecureCredential "My awesome password!"
+		PS C:\> Set-StoredPassword "My awesome password!"
 	.EXAMPLE
-		PS C:\> Set-StoredSecureCredential "My awesome password!" -Scope "LocalMachine"
+		PS C:\> Set-StoredPassword "My awesome password!" -Scope "LocalMachine"
 	.EXAMPLE
-		PS C:\> Set-StoredSecureCredential -Password "My awesome password!" -Path "D:\Scripts\EpicScript\secure.bin" -EntropyPath "D:\Scripts\EpicScript\ent.bin"
+		PS C:\> Set-StoredPassword -Password "My awesome password!" -Path "D:\Scripts\EpicScript\secure.bin" -EntropyPath "D:\Scripts\EpicScript\ent.bin"
 	.EXAMPLE
-		PS C:\> Set-StoredSecureCredential -Password "My awesome password!" -Path "D:\Scripts\EpicScript\secure.bin" -EntropyPath "D:\Scripts\EpicScript\ent.bin" -Scope "LocalMachine"
+		PS C:\> Set-StoredPassword -Password "My awesome password!" -Path "D:\Scripts\EpicScript\secure.bin" -EntropyPath "D:\Scripts\EpicScript\ent.bin" -Scope "LocalMachine"
 	.INPUTS
 	.OUTPUTS
 		Secured password stored as type byte, entropy data stored as type byte.
@@ -126,15 +126,15 @@ function Set-StoredSecureCredential
 		{ }
 	}
 }
-Export-ModuleMember -Function Set-StoredSecureCredential
+Export-ModuleMember -Function Set-StoredPassword
 
-function Get-StoredSecureCredential
+function Get-StoredPassword
 {
 <#
 	.SYNOPSIS
-		Gets a stored password (typically using Set-StoredSecureCredential), applies entropy and unprotects the data.
+		Gets a stored password (typically using Set-StoredPassword), applies entropy and unprotects the data.
 	.DESCRIPTION
-		Gets a stored password (typically using Set-StoredSecureCredential), applies entropy and unprotects the data.
+		Gets a stored password (typically using Set-StoredPassword), applies entropy and unprotects the data.
 		Returns password as [System.String]
 	.PARAMETER Path
 		Input path for secured password.
@@ -143,7 +143,7 @@ function Get-StoredSecureCredential
 	.PARAMETER Scope
 		Scope of ProtectedData type. CurrentUser or LocalMachine are the two accepted values. CurrentUser is the default value.
 	.EXAMPLE
-		PS C:\> Get-StoredSecureCredential -Path "D:\Scripts\EpicScript\secure.bin" -EntropyPath "D:\Scripts\EpicScript\ent.bin"
+		PS C:\> Get-StoredPassword -Path "D:\Scripts\EpicScript\secure.bin" -EntropyPath "D:\Scripts\EpicScript\ent.bin"
 	.INPUTS
 		Two files, both of type byte, one containing protected password data, the other containing the entropy data used for protection.
 	.OUTPUTS
@@ -228,4 +228,4 @@ function Get-StoredSecureCredential
 		{ }
 	}
 }
-Export-ModuleMember -Function Get-StoredSecureCredential
+Export-ModuleMember -Function Get-StoredPassword
