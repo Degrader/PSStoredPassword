@@ -2,7 +2,6 @@
 	===========================================================================
 	 Created on:   	2/19/2019 11:56 AM
 	 Created by:   	Jordan Colton
-	 Organization: 	InterMountain ESD
 	 Filename:     	PSStoredPassword
 	-------------------------------------------------------------------------
 	 Module Name: PSStoredPassword
